@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+
+authors:
+- family-names: "Last"
+  given-names: "First"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+
+  
+title: "espresso"
+
+doi: doi
+date-released: 2025
+url: "https://arxiv"
+
+publisher: arxiv
+pages: pp
+year: 2025
+journal: arxiv
