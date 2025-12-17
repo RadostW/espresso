@@ -23,7 +23,7 @@ python3 fit_model_brewer_calibration.py
 # License
 
 This software is licensed under GPLv3 License
-Copyright (C) Radost Waszkiewicz, Franciszek Myck, Łukasz Białas, Maria Puciata-Mroczyńska (2025).
+Copyright (C) Radost Waszkiewicz, Franciszek Myck, Łukasz Białas, Maria Puciata-Mroczyńska, Maciej Lisicki (2025).
 
 # How to cite
 
