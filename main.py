@@ -19,6 +19,7 @@ print("=== Ploting mastersizer ===")
 import plot_singlepanel_mastersizer
 
 print("=== Ploting comparison ===")
+import plot_multipanel_static_theory
 import plot_singlepanel_phi_limit
 import plot_multipanel_theory_vs_time
 

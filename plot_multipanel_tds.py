@@ -195,7 +195,7 @@ ax_removed.set_xlabel("Time [s]")
 # =========================
 # Panel labels
 # =========================
-panel_labels = ["A", "B", "C"]
+panel_labels = ["B", "C", "D"]
 for ax, label in zip(axs, panel_labels):
     ax.text(
         0.05, 0.90, label,
