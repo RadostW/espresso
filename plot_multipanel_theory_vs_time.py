@@ -167,7 +167,7 @@ ax_flow.axhline(0, color="k", linestyle=":", linewidth=1)
 # =========================
 # Panel labels
 # =========================
-panel_labels = ["A", "B"]
+panel_labels = [r"\textbf{(A)}", r"\textbf{(B)}"]
 for ax, label in zip(axs, panel_labels):
     ax.text(
         0.05,

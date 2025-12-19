@@ -116,7 +116,7 @@ axs[1].set_ylim([0, 1.6])
 # -------------------------
 # Add panel labels
 # -------------------------
-panel_labels = ["B", "C"]
+panel_labels = [r"\textbf{(B)}", r"\textbf{(C)}"]
 panel_label_x, panel_label_y = 0.05, 0.90
 for ax, label in zip(axs, panel_labels):
     ax.text(

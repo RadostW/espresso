@@ -168,7 +168,7 @@ ax_limit.legend()
 # =========================
 # Panel labels
 # =========================
-panel_labels = ["A", "B"]
+panel_labels = [r"\textbf{(A)}", r"\textbf{(B)}"]
 for ax, label in zip(axs, panel_labels):
     ax.text(
         0.05, 0.90, label,

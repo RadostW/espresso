@@ -195,7 +195,7 @@ ax_removed.set_xlabel("Time [s]")
 # =========================
 # Panel labels
 # =========================
-panel_labels = ["B", "C", "D"]
+panel_labels = [r"\textbf{(B)}", r"\textbf{(C)}", r"\textbf{(D)}"]
 for ax, label in zip(axs, panel_labels):
     ax.text(
         0.05, 0.90, label,
