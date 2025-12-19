@@ -25,6 +25,19 @@ STYLE_FILE = HERE / "styles" / "espresso.mplstyle"
 OUTPUT_DIR = HERE / "figures"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
+# TAKE_PRESSURES = [1.0, 2.0, 3.5, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 11.0, 13.0]
+TAKE_PRESSURES = [
+    # 1.0,
+    2.0,
+    # 3.5,
+    4.0,
+    # 5.0, 6.0, 7.0,
+    8.0,
+    9.0,
+    # 11.0,
+    13.0,
+]
+
 # =========================
 # Plot parameters
 # =========================
@@ -65,7 +78,7 @@ final_phi = k_solids / dose
 def phi_factor(phi):
     return (
         phi * (phi * (11 * phi - 15) + 6) - 6 * (phi - 1) ** 3 * np.log(1 - phi)
-    ) / ( 6 * (phi - 1) ** 2 )
+    ) / (6 * (phi - 1) ** 2)
 
 
 def solids_teo(t, k_solids, l_solids, m_solids):
@@ -114,6 +127,8 @@ ax_single, ax_flow = axs
 # Plot data
 # =========================
 for p in reference_pressures:
+    if p not in TAKE_PRESSURES:
+        continue
     df_p = df[df["reference_pressure_round__bar"] == p].reset_index(drop=True)
 
     exp_time = df_p["time__s"]
@@ -133,7 +148,9 @@ for p in reference_pressures:
         teo_time,
         q_td,
         color=color,
-        ls=":",
+        marker="",
+        linestyle="-",
+        dashes=[3, 1],
     )
 
     # --- Panel B: single line ---
@@ -146,10 +163,10 @@ for p in reference_pressures:
         ax_single.plot(
             teo_time,
             q_td,
-            #color=color,
+            # color=color,
             linestyle="-",
-    dashes=[3, 0.3],
-    color="k",
+            dashes=[3, 1],
+            color="k",
         )
 
 # =========================

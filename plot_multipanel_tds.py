@@ -182,6 +182,8 @@ ax_removed.plot(time, df_time_dependent["solids_removed__g"], color="C1")
 # Axis formatting
 # =========================
 ax_tds.set_xlim([0,df_tds["time__s"].max()])
+# ax_tds.set_ylim([0,1.2*df_tds["tds__percent"].max()])
+ax_tds.set_ylim([0,30])
 ax_tds.set_ylabel(r"TDS [\%]")
 ax_tds.set_xlabel("Time [s]")
 

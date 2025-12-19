@@ -18,7 +18,7 @@ OUTPUT_FILE = OUTPUT_DIR / "multipanel_brewer_calibration.pdf"
 # =========================
 # Figure settings
 # =========================
-FIG_WIDTH = 5
+FIG_WIDTH = 2
 FIG_HEIGHT = 2
 FONT_SIZE = 9
 
@@ -48,33 +48,8 @@ a, b, c = fit_params["a"], fit_params["b"], fit_params["c"]
 # =========================
 # Create figure with 2 panels
 # =========================
-fig, axs = plt.subplots(1, 2, figsize=(FIG_WIDTH, FIG_HEIGHT), constrained_layout=True)
-
-# -------------------------
-# Panel 1: p1 and p2 vs control valve setting
-# -------------------------
-series_name = "przekroj-test-zawor_interval_stats.csv"
-df_sel = df[df["measurement_series"] == series_name]
-
-ax_errorbar_black(
-    axs[0],
-    range(len(df_sel)),
-    df_sel["p1_mean__bar"],
-    yerr=df_sel["p1_std__bar"],
-    color="C0",
-)
-ax_errorbar_black(
-    axs[0],
-    range(len(df_sel)),
-    df_sel["p2_mean__bar"],
-    yerr=df_sel["p2_std__bar"],
-    color="C1",
-)
-
-axs[0].set_xlabel("Control valve setting")
-axs[0].set_xticks([])
-
-axs[0].set_ylabel("Pressure [bar]")
+fig, axs = plt.subplots(1, 1, figsize=(FIG_WIDTH, FIG_HEIGHT), constrained_layout=True)
+ax_quadratic = axs
 
 # -------------------------
 # Panel 2: delta_p vs flow rate with quadratic fit
@@ -85,7 +60,7 @@ measurement_series_list = df["measurement_series"].unique()
 for i, series in enumerate(measurement_series_list):
     df_series = df[df["measurement_series"] == series]
     ax_errorbar_black(
-        axs[1],
+        ax_quadratic,
         df_series["flow_rate_mean__g_per_s"],
         df_series["delta_p_mean__bar"],
         yerr=df_series["delta_p_std__bar"],
@@ -97,7 +72,7 @@ flow_fit = np.linspace(
     df["flow_rate_mean__g_per_s"].min(), df["flow_rate_mean__g_per_s"].max(), 300
 )
 delta_p_fit = a * flow_fit**2 + b * flow_fit + c
-axs[1].plot(
+ax_quadratic.plot(
     flow_fit,
     delta_p_fit,
     marker="",
@@ -106,27 +81,27 @@ axs[1].plot(
     color="k",
 )
 
-axs[1].set_xlabel("Flow rate [g/s]")
-axs[1].set_xticks([0, 2, 4, 6, 8, 10])
-axs[1].set_xlim([0, 7.2])
+ax_quadratic.set_xlabel("Flow rate [g/s]")
+ax_quadratic.set_xticks([0, 2, 4, 6, 8, 10])
+ax_quadratic.set_xlim([0, 7.2])
 
-axs[1].set_ylabel("Brewer pressure drop [bar]")
-axs[1].set_ylim([0, 1.6])
+ax_quadratic.set_ylabel("Brewer pressure drop [bar]")
+ax_quadratic.set_ylim([0, 1.6])
 
 # -------------------------
 # Add panel labels
 # -------------------------
-panel_labels = [r"\textbf{(B)}", r"\textbf{(C)}"]
+panel_labels = [r"\textbf{(B)}"]
 panel_label_x, panel_label_y = 0.05, 0.90
-for ax, label in zip(axs, panel_labels):
-    ax.text(
-        panel_label_x,
-        panel_label_y,
-        label,
-        transform=ax.transAxes,
-        fontsize=FONT_SIZE,
-        fontweight="bold",
-    )
+
+ax_quadratic.text(
+    panel_label_x,
+    panel_label_y,
+    panel_labels[0],
+    transform=ax_quadratic.transAxes,
+    fontsize=FONT_SIZE,
+    fontweight="bold",
+)
 
 # =========================
 # Save figure

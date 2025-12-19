@@ -60,15 +60,18 @@ fig, ax = plt.subplots(
     constrained_layout=True,
 )
 
-ax.errorbar(
-    bin_edges,
-    mean_value,
-    yerr=stderr_value,    
+ax.bar(
+    bin_edges[1:],    
+    mean_value[1:],
+    width=bin_edges[1:]-bin_edges[:-1],
+    yerr=stderr_value[1:],    
     ls='',
+    color='#ccc'
 )
 
 ax.set_xscale("log")
 ax.set_xlim(5, 500)
+ax.set_ylim(-0.01, 1.08)
 
 ax.set_xlabel(r"Grind size [$\mu$m]")
 ax.set_ylabel("Volume abundance [a.u.]")
