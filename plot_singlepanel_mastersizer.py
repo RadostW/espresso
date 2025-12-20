@@ -18,7 +18,7 @@ STYLE_FILE = HERE / "styles" / "espresso.mplstyle"
 # =========================
 
 FIGURE_WIDTH = 3.3
-FIGURE_HEIGHT = 2
+FIGURE_HEIGHT = 2.2
 FONT_SIZE = 9
 
 plt.style.use(STYLE_FILE)

@@ -21,7 +21,7 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 # =========================
 
 FIGURE_WIDTH = 3.3
-FIGURE_HEIGHT = 2
+FIGURE_HEIGHT = 2.2
 
 FIG_HEIGHT = 2
 FONT_SIZE = 9
@@ -88,8 +88,8 @@ ax.plot(
     q_fit,
     marker="",
 
-    linestyle="-",
-    dashes=[3, 0.3],
+    linestyle="solid",
+    #dashes=[3, 0.3],
     color="k",
 )
 ax.set_xlim([0,13])

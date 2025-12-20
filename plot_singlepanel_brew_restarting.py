@@ -17,7 +17,7 @@ STYLE_FILE = HERE / "styles" / "espresso.mplstyle"
 # =========================
 
 FIGURE_WIDTH = 3.3
-FIGURE_HEIGHT = 2
+FIGURE_HEIGHT = 2.2
 
 plt.style.use(STYLE_FILE)
 plt.rcParams.update({"lines.marker": ""})
