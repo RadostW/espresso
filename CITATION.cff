@@ -1,18 +1,45 @@
 cff-version: 1.2.0
 
+title: "Under pressure: Poroelastic regulation of flow in espresso brewing"
+
 authors:
-- family-names: "Last"
-  given-names: "First"
-  orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: "Waszkiewicz"
+    given-names: "Radost"
+    orcid: "https://orcid.org/0000-0002-0376-1708"
 
-  
-title: "espresso"
+  - family-names: "Myck"
+    given-names: "Franciszek"
 
-doi: doi
-date-released: 2025
-url: "https://arxiv"
+  - family-names: "Białas"
+    given-names: "Łukasz"
+    orcid: "https://orcid.org/0009-0008-2268-9845"
 
-publisher: arxiv
-pages: pp
+  - family-names: "Puciata-Mroczynska"
+    given-names: "Maria"
+    orcid: "https://orcid.org/0009-0004-2498-7679"
+
+  - family-names: "Dzikowski"
+    given-names: "Michał"
+    orcid: "https://orcid.org/0000-0001-5709-7235"
+
+  - family-names: "Szymczak"
+    given-names: "Piotr"
+    orcid: "https://orcid.org/0000-0001-8940-7891"
+
+  - family-names: "Lisicki"
+    given-names: "Maciej"
+    orcid: "https://orcid.org/0000-0002-6976-0281"
+
+journal: "arXiv"
+publisher: "arXiv"
+
 year: 2025
-journal: arxiv
+date-released: 2025
+
+doi: "doi"
+url: "https://arxiv.org"
+
+pages: "na"
+volume: "na"
+issue: "na"
+

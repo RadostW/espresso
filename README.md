@@ -1,11 +1,11 @@
 # Soft matter model of espresso brewing
 
 <p align="center">
-  <img src="espresso_split_into_small_batches.jpg" alt="eu election turnout" width="100%"/>
+  <img src="espresso_split_into_small_batches.jpg" alt="Espresso split into small batches" width="100%"/>
   <div align="center" style="font-style: italic;">Figure: espresso split into small batches.</div>
 </p>
 
-This repository accompanies a publication titled *title*.
+This repository accompanies a publication titled *Under pressure: poroelastic regulation of flow in espresso brewing*.
 
 # Usage
 
@@ -28,14 +28,20 @@ Copyright (C) Radost Waszkiewicz, Franciszek Myck, Łukasz Białas, Maria Puciat
 # How to cite
 
 ```bibtex
-@article{espresso,
-	title        = {espresso},
-	author       = {authors},
+@article{Waszkiewicz_2025,
+	title        = {Under pressure: {P}oroelastic regulation of flow in espresso brewing},
+    author       = {Waszkiewicz, Radost and
+                    Myck, Franciszek and
+                    Białas, Łukasz and
+                    Puciata-Mroczynska, Maria and
+                    Dzikowski, Michał and
+                    Szymczak, Piotr and
+                    Lisicki, Maciej},
 	year         = 2025,
 	journal      = {arxiv},
 	publisher    = {arxiv},
-	volume       = vv,
-	number       = nn,
-	pages        = {pp}
+	volume       = na,
+	number       = na,
+	pages        = {na}
 }
 ```
