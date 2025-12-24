@@ -1,4 +1,4 @@
-# Soft matter model of espresso brewing
+# Under pressure: poroelastic regulation of flow in espresso brewing
 
 <p align="center">
   <img src="espresso_split_into_small_batches.jpg" alt="Espresso split into small batches" width="100%"/>
