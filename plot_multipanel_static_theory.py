@@ -108,7 +108,7 @@ ax_comparison.set_xlim([0,13])
 ax_comparison.set_ylim([0,2.2])
 
 ax_comparison.set_xlabel("Basket pressure [bar]")
-ax_comparison.set_ylabel("Long run flow [g/s]")
+ax_comparison.set_ylabel("Long-time flow rate [g/s]")
 
 
 # =========================

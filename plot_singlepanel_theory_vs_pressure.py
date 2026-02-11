@@ -96,7 +96,7 @@ ax.set_xlim([0,13])
 ax.set_ylim([0,2.2])
 
 ax.set_xlabel("Basket pressure [bar]")
-ax.set_ylabel("Long run flow [g/s]")
+ax.set_ylabel("Long-time flow rate [g/s]")
 
 # Save figure
 output_file = OUTPUT_DIR / "final_q_vs_final_p.pdf"
