@@ -73,7 +73,7 @@ ax.set_xscale("log")
 ax.set_xlim(5, 500)
 ax.set_ylim(-0.01, 1.08)
 
-ax.set_xlabel(r"Grind size [$\mu$m]")
+ax.set_xlabel(r"Particle size [$\mu$m]")
 ax.set_ylabel("Volume abundance [a.u.]")
 
 # =========================
