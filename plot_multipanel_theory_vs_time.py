@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+from matplotlib.lines import Line2D
 import colormaps as cmaps
 
 # =========================
@@ -53,6 +54,16 @@ plt.rcParams.update({"lines.marker": ""})  # no default markers
 # =========================
 df = pd.read_csv(DATA_CSV)
 reference_pressures = sorted(df["reference_pressure_round__bar"].unique())
+
+mean_basket_pressures = {}
+pressure_labels = {}
+
+for p in TAKE_PRESSURES:
+    df_p = df[df["reference_pressure_round__bar"] == p].reset_index(drop=True)
+    mean_basket_pressure = df_p["basket_pressure__bar"].mean()
+
+    mean_basket_pressures[p] = mean_basket_pressure
+    pressure_labels[p] = f"{mean_basket_pressure:.1f} bar"
 
 fit_params = pd.read_csv(STATIC_FIT_CSV).set_index("parameter")["value"]
 final_p_ref, final_q_ref = fit_params["p_ref__bar"], fit_params["q_ref__g_per_s"]
@@ -134,7 +145,8 @@ for p in reference_pressures:
     exp_time = df_p["time__s"]
     color = colors[p]
 
-    p_hat_td = p / p_ref_td
+    mean_basket_pressure = mean_basket_pressures[p]
+    p_hat_td = mean_basket_pressure / p_ref_td
     q_hat_td = q_hat(p_hat_td)
     q_td = np.clip(q_hat_td * q_ref_td, a_min=0, a_max=None)
 
@@ -195,6 +207,44 @@ for ax, label in zip(axs, panel_labels):
         fontweight="bold",
     )
 
+# =========================
+# One combined legend
+# =========================
+
+# mean pressure label for each selected run
+pressure_labels = {}
+for p in TAKE_PRESSURES:
+    df_p = df[df["reference_pressure_round__bar"] == p].reset_index(drop=True)
+    mean_pressure = df_p["basket_pressure__bar"].mean()
+    pressure_labels[p] = f"{mean_pressure:.1f} bar"
+
+pressure_handles = [
+    Line2D([0], [0], color=colors[p], lw=2, label=pressure_labels[p])
+    for p in TAKE_PRESSURES
+]
+
+blank = Line2D([], [], linestyle="none", linewidth=0, label="")
+
+style_handles = [
+    Line2D([0], [0], color="k", lw=1, linestyle="-", label="exp."),
+    Line2D([0], [0], color="k", lw=1, linestyle="-", dashes=[3, 1], label="theo."),
+]
+
+handles = pressure_handles + [blank, blank] + style_handles
+labels = [h.get_label() for h in handles]
+
+legend = ax_flow.legend(
+    handles=handles,
+    labels=labels,
+    loc="center left",
+    bbox_to_anchor=(1.02, 0.5),
+    frameon=False,
+    fontsize=8,
+    handlelength=2.8,
+    handletextpad=0.8,
+    labelspacing=0.5,
+    borderaxespad=0.0,
+)
 # =========================
 # Save figure
 # =========================
