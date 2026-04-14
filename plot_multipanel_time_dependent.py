@@ -72,8 +72,8 @@ for p in reference_pressures:
     color = colors[p]
 
     # --- Panel A: Pressure ---
-    mean_p = df_p["pressure__bar"]
-    std_p = df_p["pressure_std__bar"]
+    mean_p = df_p["basket_pressure__bar"]
+    std_p = df_p["basket_pressure_std__bar"]
     ax_pressure.plot(time, mean_p, color=color)
     ax_pressure.fill_between(time, mean_p - std_p, mean_p + std_p,
                              color=color, alpha=SHADOW_ALPHA)
