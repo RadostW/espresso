@@ -100,10 +100,28 @@ for name, val, err in zip(
 # =========================
 fit_df = pd.DataFrame(
     {
-        "parameter": ["k_solids__g", "l_solids__s", "m_solids__s", "first_drop_offset__s"],
-        "value": [k_solids, l_solids, m_solids, FIRST_DROP_OFFSET],
-        "std": list(perr) + [0],
-        "model": ["0.5 * k * (1 - tanh((t - l) / m))"] * 4,
+        "parameter": [
+            "k_solids__g",
+            "l_solids__s",
+            "m_solids__s",
+            "first_drop_offset__s",
+            "phi_m",
+        ],
+        "value": [
+            k_solids,
+            l_solids,
+            m_solids,
+            FIRST_DROP_OFFSET,
+            k_solids / 18.5,
+        ],
+        "std": [
+            perr[0],
+            perr[1],
+            perr[2],
+            0,
+            perr[0] / 18.5,
+        ],
+        "model": ["0.5 * k * (1 + tanh((t - l) / m))"] * 5,
     }
 )
 
